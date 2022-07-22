@@ -5,12 +5,14 @@ namespace VendorOrderTracker.Models
   public class Order
   {
     public string OrderName { get; set; }
+    public int Id { get; }
     private static List<Order> _instances = new List<Order> { };
     
     public Order(string orderName)
     {
       OrderName = orderName;
       _instances.Add(this);
+      Id = _instances.Count;
 
     }
 
@@ -22,6 +24,11 @@ namespace VendorOrderTracker.Models
     public static void ClearAll()
     {
       _instances.Clear();
+    }
+
+    public static Order Find(int searchId)
+    {
+      return _instances[searchId-1];
     }
   }
 

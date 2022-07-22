@@ -51,16 +51,12 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void GetAll_ReturnsOrders_OrderList()
     {
-      string description01 = "Walk the dog";
-      string description02 = "Wash the dishes";
+      string description01 = "Case of donuts";
+      string description02 = "Case of cakes";
       Order newOrder1 = new Order(description01);
       Order newOrder2 = new Order(description02);
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
-
-      //Act
       List<Order> result = Order.GetAll();
-
-      //Assert
       CollectionAssert.AreEqual(newList, result);
     }
   }
