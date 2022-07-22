@@ -27,5 +27,11 @@ namespace VendorOrderTracker.Controllers
     {
       return View();
     }
+
+    // [HttpsGet("/vendors/{id}")]
+    // public ActionResult Show(int id)
+    // {
+
+    // }
 }
 }
