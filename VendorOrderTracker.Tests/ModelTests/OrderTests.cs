@@ -12,7 +12,7 @@ namespace VendorOrderTracker.Tests
     {
       Order.ClearAll();
     }
-    
+
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOrder_Order()
     {
@@ -46,6 +46,22 @@ namespace VendorOrderTracker.Tests
     List<Order> newList = new List<Order> { };
     List<Order> result = Order.GetAll();
     CollectionAssert.AreEqual(newList, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsOrders_OrderList()
+    {
+      string description01 = "Walk the dog";
+      string description02 = "Wash the dishes";
+      Order newOrder1 = new Order(description01);
+      Order newOrder2 = new Order(description02);
+      List<Order> newList = new List<Order> { newOrder1, newOrder2 };
+
+      //Act
+      List<Order> result = Order.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
