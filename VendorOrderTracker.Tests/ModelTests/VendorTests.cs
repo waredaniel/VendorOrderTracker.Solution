@@ -22,7 +22,7 @@ namespace VendorOrderTracker.Test
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
-     [TestMethod]
+    [TestMethod]
     public void GetName_ReturnsVendorName_String()
     {
       string name = "Test vendor";
@@ -31,7 +31,7 @@ namespace VendorOrderTracker.Test
       Assert.AreEqual(name, result);
     }
 
-       [TestMethod]
+    [TestMethod]
     public void GetId_ReturnsVendorId_Int()
     {
       string name = "Test vendor";
@@ -39,6 +39,19 @@ namespace VendorOrderTracker.Test
       int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
+    
+    [TestMethod]
+    public void GetAll_ReturnsAllVendorObjects_VendorList()
+    {
+      string vendorName01 = "Supermarket";
+      string vendorName02 = "Restaurant";
+      Vendor newVendor1 = new Vendor(vendorName01);
+      Vendor newVendor2 = new Vendor(vendorName02);
+      List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
+      List<Vendor> result = Vendor.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+    }
+
   }
 
 }
