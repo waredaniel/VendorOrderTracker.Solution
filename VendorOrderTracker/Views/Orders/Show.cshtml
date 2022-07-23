@@ -4,8 +4,11 @@
 
 <h1>Order Details: </h1>
 
-<h2>@Model["order"].OrderName</h2>
-<h3>Category: @Model["vendor"].Name</h3>
+<h2>Category: @Model["vendor"].Name</h3>
+<h3>Name: @Model["order"].OrderName</h2>
+<h3>Description: @Model["order"].OrderDescription</h2>
+<h3>Cost: $@Model["order"].OrderCost</h2>
+<h3>Date: @Model["order"].OrderDate</h2>
 
 <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
 <a href='/vendors'>View all vendors</a>
