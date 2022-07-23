@@ -18,7 +18,7 @@ namespace VendorOrderTracker.Test
     [TestMethod]
     public void VendorConstructor_CreateInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test vendor");
+      Vendor newVendor = new Vendor("test vendor", "test info");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -26,7 +26,8 @@ namespace VendorOrderTracker.Test
     public void GetName_ReturnsVendorName_String()
     {
       string name = "Test vendor";
-      Vendor newVendor = new Vendor(name);
+      string vendorInfo = "test1";
+      Vendor newVendor = new Vendor(name, vendorInfo);
       string result = newVendor.Name;
       Assert.AreEqual(name, result);
     }
@@ -35,7 +36,8 @@ namespace VendorOrderTracker.Test
     public void GetId_ReturnsVendorId_Int()
     {
       string name = "Test vendor";
-      Vendor newVendor = new Vendor(name);
+      string vendorInfo = "test1";
+      Vendor newVendor = new Vendor(name, vendorInfo);
       int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
@@ -45,8 +47,10 @@ namespace VendorOrderTracker.Test
     {
       string vendorName01 = "Supermarket";
       string vendorName02 = "Restaurant";
-      Vendor newVendor1 = new Vendor(vendorName01);
-      Vendor newVendor2 = new Vendor(vendorName02);
+      string vendorInfo1 = "test1";
+      string vendorInfo2 = "test2";
+      Vendor newVendor1 = new Vendor(vendorName01, vendorInfo1);
+      Vendor newVendor2 = new Vendor(vendorName02, vendorInfo2);
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
       List<Vendor> result = Vendor.GetAll();
       CollectionAssert.AreEqual(newList, result);
@@ -57,8 +61,10 @@ namespace VendorOrderTracker.Test
     {
       string vendorName01 = "Supermarket";
       string vendorName02 = "Restaurant";
-      Vendor newVendor1 = new Vendor(vendorName01);
-      Vendor newVendor2 = new Vendor(vendorName02);
+      string vendorInfo1 = "test1";
+      string vendorInfo2 = "test2";
+      Vendor newVendor1 = new Vendor(vendorName01, vendorInfo1);
+      Vendor newVendor2 = new Vendor(vendorName02, vendorInfo2);
       Vendor result = Vendor.Find(2);
       Assert.AreEqual(newVendor2, result);
     }
