@@ -16,7 +16,7 @@ namespace VendorOrderTracker.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOrder_Order()
     {
-      Order newOrder = new Order("test");
+      Order newOrder = new Order("name", "description", 1, "date");
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
@@ -24,7 +24,10 @@ namespace VendorOrderTracker.Tests
     public void GetOrderName_ReturnsOrderName_String()
     {
       string orderName = "Case of donuts.";
-      Order newOrder = new Order(orderName);
+      string orderDescription = "test";
+      int orderCost = 1;
+      string orderDate = "date";
+      Order newOrder = new Order(orderName, orderDescription, orderCost, orderDate);
       string result = newOrder.OrderName;
       Assert.AreEqual(orderName, result);
     }
@@ -33,7 +36,10 @@ namespace VendorOrderTracker.Tests
     public void SetOrderName_SetOrderName_String()
     {
       string orderName = "Case of donuts.";
-      Order newOrder = new Order(orderName);
+      string orderDescription = "test";
+      int orderCost = 1;
+      string orderDate = "date";
+      Order newOrder = new Order(orderName, orderDescription, orderCost, orderDate);
       string updatedName = "Case of cakes";
       newOrder.OrderName = updatedName;
       string result = newOrder.OrderName;
@@ -53,8 +59,11 @@ namespace VendorOrderTracker.Tests
     {
       string description01 = "Case of donuts";
       string description02 = "Case of cakes";
-      Order newOrder1 = new Order(description01);
-      Order newOrder2 = new Order(description02);
+      string orderDescription = "test";
+      int orderCost = 1;
+      string orderDate = "date";
+      Order newOrder1 = new Order(description01, orderDescription, orderCost, orderDate);
+      Order newOrder2 = new Order(description02, orderDescription, orderCost, orderDate);
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);
